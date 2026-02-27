@@ -1,0 +1,6 @@
+{"level":"fatal","ts":"2026-02-25T16:35:07.068+0800","msg":"dial unix /var/run/mysqld/mysqld.sock: connect: A socket operation encountered a dead network.","func":"dao.init.0","file":"D:/go-chat/internal/dao/gorm.go","line":26}
+{"level":"info","ts":"2026-02-26T01:54:38.873+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":22}
+{"level":"info","ts":"2026-02-26T01:57:40.336+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"error","ts":"2026-02-26T02:05:39.818+0800","msg":"EOF","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":16}
+{"level":"info","ts":"2026-02-26T02:05:46.205+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-02-26T02:05:46.205+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
