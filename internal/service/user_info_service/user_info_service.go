@@ -1,17 +1,18 @@
-package user_service
+package user_info_service
 
 import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	redis "github.com/go-redis/redis/v8"
 	"go-chat/internal/dao"
 	"go-chat/internal/dto/request"
 	"go-chat/internal/dto/respond"
 	"go-chat/internal/model"
-	"go-chat/internal/service/redis"
+	myredis "go-chat/internal/service/redis"
 	"go-chat/internal/service/sms"
 	"go-chat/pkg/constants"
-	"go-chat/pkg/enum/user_info/user_status_enum"
+	user_info_enum "go-chat/pkg/enum/user_info"
 	"go-chat/pkg/util/random"
 	"go-chat/pkg/zlog"
 	"gorm.io/gorm"
@@ -109,7 +110,7 @@ func (u *userInfoService) Register(registerReq request.RegisterRequest) (string,
 		return "手机号格式不正确", nil, -2
 	}
 	key := "auth_code_" + registerReq.Telephone
-	code, err := redis.GetKey(key)
+	code, err := myredis.GetKey(key)
 	if err != nil {
 		zlog.Error(err.Error())
 		return constants.SYSTEM_ERROR, nil, -1
@@ -119,7 +120,7 @@ func (u *userInfoService) Register(registerReq request.RegisterRequest) (string,
 		zlog.Info(message)
 		return message, nil, -2
 	} else {
-		if err := redis.DelKeyIfExists(key); err != nil {
+		if err := myredis.DelKeyIfExists(key); err != nil {
 			zlog.Error(err.Error())
 			return constants.SYSTEM_ERROR, nil, -1
 		}
@@ -137,7 +138,7 @@ func (u *userInfoService) Register(registerReq request.RegisterRequest) (string,
 	newUser.Avatar = "https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
 	newUser.CreatedAt = time.Now()
 	newUser.IsAdmin = u.checkUserIsAdminOrNot(newUser)
-	newUser.Status = user_status_enum.NORMAL
+	newUser.Status = user_info_enum.NORMAL
 
 	res := dao.GormDB.Create(&newUser)
 	if res.Error != nil {
@@ -178,7 +179,7 @@ func (u *userInfoService) SmsLogin(req request.SmsLoginRequest) (string, *respon
 	}
 
 	key := "auth_code_" + req.Telephone
-	code, err := redis.GetKey(key)
+	code, err := myredis.GetKey(key)
 	if err != nil {
 		zlog.Error(err.Error())
 		return constants.SYSTEM_ERROR, nil, -1
@@ -188,7 +189,7 @@ func (u *userInfoService) SmsLogin(req request.SmsLoginRequest) (string, *respon
 		zlog.Info(message)
 		return message, nil, -2
 	} else {
-		if err := redis.DelKeyIfExists(key); err != nil {
+		if err := myredis.DelKeyIfExists(key); err != nil {
 			zlog.Error(err.Error())
 			return constants.SYSTEM_ERROR, nil, -1
 		}
@@ -289,7 +290,7 @@ func (u *userInfoService) AbleUsers(uuidList []string) (string, int) {
 		return constants.SYSTEM_ERROR, -1
 	}
 	for _, user := range users {
-		user.Status = user_status_enum.NORMAL
+		user.Status = user_info_enum.NORMAL
 		if res := dao.GormDB.Save(&user); res.Error != nil {
 			zlog.Error(res.Error.Error())
 			return constants.SYSTEM_ERROR, -1
@@ -311,7 +312,7 @@ func (u *userInfoService) DisableUsers(uuidList []string) (string, int) {
 		return constants.SYSTEM_ERROR, -1
 	}
 	for _, user := range users {
-		user.Status = user_status_enum.DISABLE
+		user.Status = user_info_enum.DISABLE
 		if res := dao.GormDB.Save(&user); res.Error != nil {
 			zlog.Error(res.Error.Error())
 			return constants.SYSTEM_ERROR, -1
@@ -430,9 +431,9 @@ func (u *userInfoService) DeleteUsers(uuidList []string) (string, int) {
 func (u *userInfoService) GetUserInfo(uuid string) (string, *respond.GetUserInfoRespond, int) {
 	// redis
 	zlog.Info(uuid)
-	rspString, err := redis.GetKeyNilIsErr("user_info_" + uuid)
+	rspString, err := myredis.GetKeyNilIsErr("user_info_" + uuid)
 	if err != nil {
-		if errors.Is(err, redis.nil) {
+		if errors.Is(err, redis.Nil) {
 			zlog.Info(err.Error())
 			var user model.UserInfo
 			if res := dao.GormDB.Where("uuid = ?", uuid).Find(&user); res.Error != nil {

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"go-chat/internal/dto/request"
-	"go-chat/internal/service/user_service"
+	"go-chat/internal/service/user_info_service"
 	"go-chat/pkg/constants"
 	"go-chat/pkg/zlog"
 	"net/http"
@@ -22,11 +22,11 @@ func Register(c *gin.Context) {
 		return
 	}
 	fmt.Println(registerReq)
-	message, userInfo, ret := user_service.UserInfoService.Register(registerReq)
+	message, userInfo, ret := user_info_service.UserInfoService.Register(registerReq)
 	JsonBack(c, message, ret, userInfo)
 }
 
-// Login 登录
+// Login 手机号+密码 登录
 func Login(c *gin.Context) {
 	var loginReq request.LoginRequest
 	if err := c.BindJSON(&loginReq); err != nil {
@@ -37,7 +37,7 @@ func Login(c *gin.Context) {
 		})
 		return
 	}
-	message, userInfo, ret := user_service.UserInfoService.Login(loginReq)
+	message, userInfo, ret := user_info_service.UserInfoService.Login(loginReq)
 	JsonBack(c, message, ret, userInfo)
 }
 
@@ -52,7 +52,7 @@ func SmsLogin(c *gin.Context) {
 		})
 		return
 	}
-	message, userInfo, ret := user_service.UserInfoService.SmsLogin(req)
+	message, userInfo, ret := user_info_service.UserInfoService.SmsLogin(req)
 	JsonBack(c, message, ret, userInfo)
 }
 
@@ -67,7 +67,7 @@ func SendSmsCode(c *gin.Context) {
 		})
 		return
 	}
-	message, ret := user_service.UserInfoService.SendSmsCode(req.Telephone)
+	message, ret := user_info_service.UserInfoService.SendSmsCode(req.Telephone)
 	JsonBack(c, message, ret, nil)
 }
 
@@ -82,7 +82,7 @@ func UpdateUserInfo(c *gin.Context) {
 		})
 		return
 	}
-	message, ret := user_service.UserInfoService.UpdateUserInfo(req)
+	message, ret := user_info_service.UserInfoService.UpdateUserInfo(req)
 	JsonBack(c, message, ret, nil)
 }
 
@@ -97,7 +97,7 @@ func GetUserInfoList(c *gin.Context) {
 		})
 		return
 	}
-	message, userList, ret := user_service.UserInfoService.GetUserInfoList(req.OwnerId)
+	message, userList, ret := user_info_service.UserInfoService.GetUserInfoList(req.OwnerId)
 	JsonBack(c, message, ret, userList)
 }
 
@@ -112,7 +112,7 @@ func AbleUsers(c *gin.Context) {
 		})
 		return
 	}
-	message, ret := user_service.UserInfoService.AbleUsers(req.UuidList)
+	message, ret := user_info_service.UserInfoService.AbleUsers(req.UuidList)
 	JsonBack(c, message, ret, nil)
 }
 
@@ -127,7 +127,7 @@ func DisableUsers(c *gin.Context) {
 		})
 		return
 	}
-	message, ret := user_service.UserInfoService.DisableUsers(req.UuidList)
+	message, ret := user_info_service.UserInfoService.DisableUsers(req.UuidList)
 	JsonBack(c, message, ret, nil)
 }
 
@@ -142,7 +142,7 @@ func GetUserInfo(c *gin.Context) {
 		})
 		return
 	}
-	message, userInfo, ret := user_service.UserInfoService.GetUserInfo(req.Uuid)
+	message, userInfo, ret := user_info_service.UserInfoService.GetUserInfo(req.Uuid)
 	JsonBack(c, message, ret, userInfo)
 }
 
@@ -157,7 +157,7 @@ func DeleteUsers(c *gin.Context) {
 		})
 		return
 	}
-	message, ret := user_service.UserInfoService.DeleteUsers(req.UuidList)
+	message, ret := user_info_service.UserInfoService.DeleteUsers(req.UuidList)
 	JsonBack(c, message, ret, nil)
 }
 
@@ -172,6 +172,6 @@ func SetAdmin(c *gin.Context) {
 		})
 		return
 	}
-	message, ret := user_service.UserInfoService.SetAdmin(req.UuidList, req.IsAdmin)
+	message, ret := user_info_service.UserInfoService.SetAdmin(req.UuidList, req.IsAdmin)
 	JsonBack(c, message, ret, nil)
 }

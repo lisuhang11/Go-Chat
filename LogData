@@ -4,3 +4,42 @@
 {"level":"error","ts":"2026-02-26T02:05:39.818+0800","msg":"EOF","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":16}
 {"level":"info","ts":"2026-02-26T02:05:46.205+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
 {"level":"info","ts":"2026-02-26T02:05:46.205+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
+{"level":"fatal","ts":"2026-03-01T13:41:55.945+0800","msg":"dial tcp 127.0.0.1:3306: connectex: No connection could be made because the target machine actively refused it.","func":"dao.init.0","file":"D:/go-chat/internal/dao/gorm.go","line":26}
+{"level":"fatal","ts":"2026-03-01T15:16:57.928+0800","msg":"Error 1170 (42000): BLOB/TEXT column 'uuid' used in key specification without a key length","func":"dao.init.0","file":"D:/go-chat/internal/dao/gorm.go","line":30}
+{"level":"fatal","ts":"2026-03-01T15:19:16.802+0800","msg":"Error 1170 (42000): BLOB/TEXT column 'uuid' used in key specification without a key length","func":"dao.init.0","file":"D:/go-chat/internal/dao/gorm.go","line":30}
+{"level":"fatal","ts":"2026-03-01T15:20:01.244+0800","msg":"Error 1170 (42000): BLOB/TEXT column 'uuid' used in key specification without a key length","func":"dao.init.0","file":"D:/go-chat/internal/dao/gorm.go","line":30}
+{"level":"info","ts":"2026-03-01T15:30:19.194+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"info","ts":"2026-03-01T15:30:47.160+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-03-01T15:30:47.160+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
+{"level":"info","ts":"2026-03-01T16:39:07.283+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"error","ts":"2026-03-01T16:52:28.145+0800","msg":"EOF","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"error","ts":"2026-03-01T17:01:06.229+0800","msg":"EOF","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"error","ts":"2026-03-01T17:01:15.869+0800","msg":"EOF","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"info","ts":"2026-03-01T17:03:50.775+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-03-01T17:03:50.775+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
+{"level":"info","ts":"2026-03-01T17:04:11.924+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"error","ts":"2026-03-01T17:04:20.887+0800","msg":"EOF","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"info","ts":"2026-03-01T17:04:28.137+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-03-01T17:04:28.137+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
+{"level":"info","ts":"2026-03-01T17:04:30.926+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"error","ts":"2026-03-01T17:05:41.213+0800","msg":"EOF","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"error","ts":"2026-03-01T17:07:43.228+0800","msg":"invalid character '-' in numeric literal","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"error","ts":"2026-03-01T17:08:30.431+0800","msg":"invalid character '-' in numeric literal","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"error","ts":"2026-03-01T17:10:10.716+0800","msg":"invalid character '-' in numeric literal","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"error","ts":"2026-03-01T17:10:11.217+0800","msg":"invalid character '-' in numeric literal","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"error","ts":"2026-03-01T17:11:43.320+0800","msg":"invalid character 't' looking for beginning of object key string","func":"v1.Login","file":"D:/go-chat/api/v1/user_info_controller.go","line":33}
+{"level":"info","ts":"2026-03-01T17:13:20.329+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-03-01T17:13:20.329+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
+{"level":"info","ts":"2026-03-01T17:13:22.932+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"info","ts":"2026-03-01T17:15:51.883+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-03-01T17:15:51.883+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
+{"level":"info","ts":"2026-03-01T17:16:55.989+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"info","ts":"2026-03-01T17:18:06.866+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-03-01T17:18:06.866+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
+{"level":"info","ts":"2026-03-01T19:12:12.395+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"info","ts":"2026-03-01T19:12:58.232+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-03-01T19:12:58.232+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
+{"level":"fatal","ts":"2026-03-02T21:36:56.262+0800","msg":"dial tcp 127.0.0.1:3306: connectex: No connection could be made because the target machine actively refused it.","func":"dao.init.0","file":"D:/go-chat/internal/dao/gorm.go","line":26}
+{"level":"info","ts":"2026-03-02T21:38:21.714+0800","msg":"服务器启动成功，监听地址: 0.0.0.0:8000","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":27}
+{"level":"info","ts":"2026-03-02T21:38:26.521+0800","msg":"正在关闭服务器...","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":34}
+{"level":"info","ts":"2026-03-02T21:38:26.521+0800","msg":"服务器已关闭","func":"main.main","file":"D:/go-chat/cmd/go-chat/main.go","line":38}
